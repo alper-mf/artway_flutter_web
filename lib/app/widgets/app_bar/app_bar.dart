@@ -1,5 +1,6 @@
 import 'package:artway_web/app/constant/app_bar_const.dart';
 import 'package:artway_web/app/constant/padding_and_radius_size.dart';
+import 'package:artway_web/app/widgets/buttons/hover_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -9,10 +10,9 @@ class MyAppbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: Get.height * .12,
       width: Get.width,
-      color: Colors.greenAccent,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -27,7 +27,10 @@ class MyAppbar extends StatelessWidget {
                   child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: appbarList.map((e) {
-                  return Text(e);
+                  return HoverButton(
+                    text: e,
+                    isSelected: false,
+                  );
                 }).toList(),
               )),
               const SizedBox(width: paddingXXXXL),
