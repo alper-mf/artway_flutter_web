@@ -1,5 +1,7 @@
+import 'package:artway_web/app/constant/padding_and_radius_size.dart';
 import 'package:artway_web/app/layout/responsive_layout.dart';
 import 'package:artway_web/app/widgets/app_bar/app_bar.dart';
+import 'package:artway_web/app/widgets/slider/my_slider.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -10,10 +12,13 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       body: ResponsiveLayout(
         desktop: Padding(
-          padding: const EdgeInsets.only(left: 40, right: 40),
+          padding: const EdgeInsets.only(
+              left: paddingXXXXL, right: paddingXXXXL, top: paddingXL),
           child: Column(
             children: const [
-              MyAppbar(),
+              Flexible(flex: 1, child: MyAppbar()),
+              SizedBox(height: paddingXXL),
+              Flexible(flex: 8, child: MySlider()),
             ],
           ),
         ),

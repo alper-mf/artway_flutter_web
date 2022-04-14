@@ -29,7 +29,7 @@ class _HoverButtonState extends State<HoverButton> {
         });
       },
       child: SizedBox(
-        height: MediaQuery.of(context).size.height * .05,
+        height: MediaQuery.of(context).size.height * .04,
         width: MediaQuery.of(context).size.width * .08,
         child: Stack(
           fit: StackFit.loose,
@@ -43,10 +43,10 @@ class _HoverButtonState extends State<HoverButton> {
                 maxWidth: isHover
                     ? MediaQuery.of(context).size.width * .08
                     : widget.isSelected!
-                        ? sizeM
+                        ? sizeM - 3
                         : 0,
               ),
-              height: MediaQuery.of(context).size.height * .05,
+              height: MediaQuery.of(context).size.height * .04,
             ),
             Text(
               widget.text!,
