@@ -26,6 +26,8 @@ class MyAppbar extends StatelessWidget {
                 return HoverButton(
                   text: e,
                   isSelected: true,
+                  backgroundColor: Colors.grey.withOpacity(0.1),
+                  textColor: Colors.black,
                 );
               }).toList(),
             )),

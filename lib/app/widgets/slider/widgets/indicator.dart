@@ -1,51 +1,41 @@
-import 'package:artway_web/app/constant/padding_and_radius_size.dart';
-import 'package:artway_web/app/theme/text_styles.dart/my_slider.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+part of '../my_slider.dart';
 
-class IndicatorTextButton extends StatelessWidget {
-  final String index;
-  final String title;
-  final String subtitle;
-  const IndicatorTextButton(
-      {Key? key,
-      required this.index,
-      required this.subtitle,
-      required this.title})
-      : super(key: key);
+class _IndicatorWidget extends StatelessWidget {
+  const _IndicatorWidget({
+    Key? key,
+    required List<SliderModel> imageList,
+  })  : _imageList = imageList,
+        super(key: key);
+
+  final List<SliderModel> _imageList;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: Get.height,
-      constraints: BoxConstraints(maxWidth: Get.width * .1),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            index.length < 2 ? '0' + index : index,
-            style: mySliderh3.copyWith(color: Colors.black),
-          ),
-          const SizedBox(
-            height: paddingM,
-          ),
-          Expanded(
-            child: Text(
-              title,
-              style: mySliderh1.copyWith(color: Colors.black),
-            ),
-          ),
-          Text(
-            subtitle,
-            style: mySliderh3.copyWith(
-              color: Colors.black.withOpacity(0.5),
-              fontWeight: FontWeight.w400,
-              fontStyle: FontStyle.italic,
-            ),
-          ),
-        ],
+    return Align(
+      alignment: Alignment.bottomRight,
+      child: Container(
+        height: MediaQuery.of(context).size.height * .2,
+        width: MediaQuery.of(context).size.width * .48,
+        color: backgroundColor,
+        child: Container(
+            margin: const EdgeInsets.fromLTRB(
+                paddingXXXL * 2, paddingXXXL, paddingXXXL * 2, 0),
+            child: ValueListenableBuilder(
+                valueListenable: SliderController.indicatorIndex,
+                builder: (BuildContext context, int index, Widget? widget) {
+                  return Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: _imageList.map((e) {
+                      bool isBold = index == e.id ? true : false;
+                      return IndicatorTextButton(
+                        index: e.id!,
+                        subtitle: e.subtitle!,
+                        title: e.title!,
+                        isSelected: isBold,
+                      );
+                    }).toList(),
+                  );
+                })),
       ),
     );
   }

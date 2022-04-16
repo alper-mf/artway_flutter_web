@@ -4,9 +4,17 @@ import 'package:artway_web/app/constant/padding_and_radius_size.dart';
 import 'package:flutter/material.dart';
 
 class HoverButton extends StatefulWidget {
-  final String? text;
-  final bool? isSelected;
-  const HoverButton({Key? key, this.text, this.isSelected}) : super(key: key);
+  final String text;
+  final bool isSelected;
+  final Color backgroundColor;
+  final Color textColor;
+  const HoverButton(
+      {Key? key,
+      required this.text,
+      required this.isSelected,
+      required this.backgroundColor,
+      required this.textColor})
+      : super(key: key);
 
   @override
   State<HoverButton> createState() => _HoverButtonState();
@@ -36,21 +44,22 @@ class _HoverButtonState extends State<HoverButton> {
           alignment: AlignmentDirectional.centerStart,
           children: [
             AnimatedContainer(
-              color: greyColor.withOpacity(0.1),
+              color: widget.backgroundColor,
               duration: const Duration(milliseconds: animationDurationMs),
               padding: const EdgeInsets.all(paddingM),
               constraints: BoxConstraints(
                 maxWidth: isHover
                     ? MediaQuery.of(context).size.width * .08
-                    : widget.isSelected!
+                    : widget.isSelected
                         ? sizeM - 3
                         : 0,
               ),
               height: MediaQuery.of(context).size.height * .04,
             ),
             Text(
-              widget.text!,
-              style: const TextStyle(fontWeight: FontWeight.w700),
+              widget.text,
+              style: TextStyle(
+                  fontWeight: FontWeight.w700, color: widget.textColor),
             ),
           ],
         ),
