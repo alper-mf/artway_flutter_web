@@ -8,6 +8,7 @@ import 'package:artway_web/app/widgets/buttons/hover_button.dart';
 import 'package:artway_web/app/widgets/slider/controller/slider_controller.dart';
 import 'package:artway_web/app/widgets/slider/widgets/indicator_text_button.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_state_manager/get_state_manager.dart';
 
 part './widgets/indicator.dart';
 
@@ -59,7 +60,21 @@ class _MySliderState extends State<MySlider> {
   Widget build(BuildContext context) {
     return SizedBox.expand(
       child: Stack(
+        fit: StackFit.expand,
         children: [
+          SizedBox.expand(
+            child: ValueListenableBuilder(
+                valueListenable: SliderController.indicatorIndex,
+                builder: (BuildContext context, int index, Widget? child) {
+                  return AnimatedSwitcher(
+                    duration: const Duration(seconds: 5),
+                    child: Image.network(
+                      _imageList[index].imageUrl!,
+                      fit: BoxFit.cover,
+                    ),
+                  );
+                }),
+          ),
           SizedBox.expand(
             child: PageView.builder(
                 controller: _pageController,
@@ -69,41 +84,36 @@ class _MySliderState extends State<MySlider> {
                 },
                 itemBuilder: ((context, index) {
                   var item = _imageList[index];
-                  return DecoratedBox(
-                      decoration: BoxDecoration(
-                          image: DecorationImage(
-                    image: NetworkImage(item.imageUrl!),
-                    fit: BoxFit.cover,
-                  )));
-                })),
-          ),
-          Row(
-            children: [
-              const SizedBox(width: sizeM),
-              const Spacer(flex: 1),
-              Flexible(
-                  flex: 7,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  return Row(
                     children: [
-                      Text(
-                        'Future City Buildings',
-                        style: s20w700Dark(context).copyWith(
-                            fontSize: MediaQuery.of(context).size.width * .05,
-                            color: Colors.white),
-                      ),
-                      const SizedBox(height: paddingM),
-                      const HoverButton(
-                        text: ' + VIEW MORE',
-                        isSelected: true,
-                        backgroundColor: Colors.black,
-                        textColor: Colors.white,
-                      )
+                      const SizedBox(width: sizeM),
+                      const Spacer(flex: 1),
+                      Flexible(
+                          flex: 7,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Future City Buildings',
+                                style: s20w700Dark(context).copyWith(
+                                    fontSize:
+                                        MediaQuery.of(context).size.width * .05,
+                                    color: Colors.white),
+                              ),
+                              const SizedBox(height: paddingM),
+                              const HoverButton(
+                                text: ' + VIEW MORE',
+                                isSelected: true,
+                                backgroundColor: Colors.black,
+                                textColor: Colors.white,
+                              )
+                            ],
+                          )),
+                      const Spacer(flex: 4),
                     ],
-                  )),
-              const Spacer(flex: 4),
-            ],
+                  );
+                })),
           ),
           _IndicatorWidget(imageList: _imageList),
         ],
