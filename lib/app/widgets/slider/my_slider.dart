@@ -22,18 +22,9 @@ class MySlider extends StatefulWidget {
 class _MySliderState extends State<MySlider> {
   late PageController _pageController;
   final List<Map<String, String>> _imageMap = [
-    {
-      "imageUrl":
-          'https://brok.qodeinteractive.com/wp-content/uploads/2021/11/h1-port-img-3.jpg'
-    },
-    {
-      "imageUrl":
-          'https://brok.qodeinteractive.com/wp-content/uploads/2021/11/h1-port-img-2.jpg'
-    },
-    {
-      "imageUrl":
-          'https://brok.qodeinteractive.com/wp-content/uploads/2021/11/h1-port-list-img-1-3.jpg'
-    }
+    {"imageUrl": 'https://brok.qodeinteractive.com/wp-content/uploads/2021/11/h1-port-img-3.jpg'},
+    {"imageUrl": 'https://brok.qodeinteractive.com/wp-content/uploads/2021/11/h1-port-img-2.jpg'},
+    {"imageUrl": 'https://brok.qodeinteractive.com/wp-content/uploads/2021/11/h1-port-list-img-1-3.jpg'}
   ];
   final List<SliderModel> _imageList = [];
 
@@ -96,10 +87,8 @@ class _MySliderState extends State<MySlider> {
                             children: [
                               Text(
                                 'Future City Buildings',
-                                style: s20w700Dark(context).copyWith(
-                                    fontSize:
-                                        MediaQuery.of(context).size.width * .05,
-                                    color: Colors.white),
+                                style: s20w700Dark(context)
+                                    .copyWith(fontSize: MediaQuery.of(context).size.width * .05, color: Colors.white),
                               ),
                               const SizedBox(height: paddingM),
                               const HoverButton(
