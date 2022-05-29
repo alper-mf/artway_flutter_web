@@ -1,14 +1,12 @@
-import 'dart:async';
-
 import 'package:artway_web/app/constant/color_constants.dart';
 import 'package:artway_web/app/constant/padding_and_radius_size.dart';
+import 'package:artway_web/app/init/size_config.dart';
 import 'package:artway_web/app/models/response/slider_model.dart';
 import 'package:artway_web/app/theme/text_style.dart';
 import 'package:artway_web/app/widgets/buttons/hover_button.dart';
 import 'package:artway_web/app/widgets/slider/controller/slider_controller.dart';
 import 'package:artway_web/app/widgets/slider/widgets/indicator_text_button.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
 
 part './widgets/indicator.dart';
 
@@ -24,7 +22,10 @@ class _MySliderState extends State<MySlider> {
   final List<Map<String, String>> _imageMap = [
     {"imageUrl": 'https://brok.qodeinteractive.com/wp-content/uploads/2021/11/h1-port-img-3.jpg'},
     {"imageUrl": 'https://brok.qodeinteractive.com/wp-content/uploads/2021/11/h1-port-img-2.jpg'},
-    {"imageUrl": 'https://brok.qodeinteractive.com/wp-content/uploads/2021/11/h1-port-list-img-1-3.jpg'}
+    {
+      "imageUrl":
+          'https://brok.qodeinteractive.com/wp-content/uploads/2021/11/h1-port-list-img-1-3.jpg'
+    }
   ];
   final List<SliderModel> _imageList = [];
 
@@ -87,8 +88,8 @@ class _MySliderState extends State<MySlider> {
                             children: [
                               Text(
                                 'Future City Buildings',
-                                style: s20w700Dark(context)
-                                    .copyWith(fontSize: MediaQuery.of(context).size.width * .05, color: Colors.white),
+                                style: s20w700Dark(context).copyWith(
+                                    fontSize: SizeConfig.width * .05, color: Colors.white),
                               ),
                               const SizedBox(height: paddingM),
                               const HoverButton(

@@ -98,7 +98,7 @@
 //                                 'Future City Buildings',
 //                                 style: s20w700Dark(context).copyWith(
 //                                     fontSize:
-//                                         MediaQuery.of(context).size.width * .05,
+//                                         SizeConfig.width * .05,
 //                                     color: Colors.white),
 //                               ),
 //                               const SizedBox(height: paddingM),

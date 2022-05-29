@@ -12,8 +12,7 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       body: ResponsiveLayout(
         desktop: Padding(
-          padding: const EdgeInsets.only(
-              left: paddingXXXXL, right: paddingXXXXL, top: paddingXL),
+          padding: const EdgeInsets.only(left: paddingXXXXL, right: paddingXXXXL, top: paddingXL),
           child: Column(
             children: const [
               Flexible(flex: 1, child: MyAppbar()),

@@ -14,12 +14,11 @@ class _IndicatorWidget extends StatelessWidget {
     return Align(
       alignment: Alignment.bottomRight,
       child: Container(
-        height: MediaQuery.of(context).size.height * .2,
-        width: MediaQuery.of(context).size.width * .48,
+        height: SizeConfig.height * .2,
+        width: SizeConfig.width * .48,
         color: backgroundColor,
         child: Container(
-            margin: const EdgeInsets.fromLTRB(
-                paddingXXXL * 2, paddingXXXL, paddingXXXL * 2, 0),
+            margin: const EdgeInsets.fromLTRB(paddingXXXL * 2, paddingXXXL, paddingXXXL * 2, 0),
             child: ValueListenableBuilder(
                 valueListenable: SliderController.indicatorIndex,
                 builder: (BuildContext context, int index, Widget? widget) {

@@ -1,6 +1,6 @@
 import 'package:artway_web/app/constant/app_constants.dart';
-import 'package:artway_web/app/constant/color_constants.dart';
 import 'package:artway_web/app/constant/padding_and_radius_size.dart';
+import 'package:artway_web/app/init/size_config.dart';
 import 'package:flutter/material.dart';
 
 class HoverButton extends StatefulWidget {
@@ -37,8 +37,8 @@ class _HoverButtonState extends State<HoverButton> {
         });
       },
       child: SizedBox(
-        height: MediaQuery.of(context).size.height * .04,
-        width: MediaQuery.of(context).size.width * .08,
+        height: SizeConfig.height * .04,
+        width: SizeConfig.width * .08,
         child: Stack(
           fit: StackFit.loose,
           alignment: AlignmentDirectional.centerStart,
@@ -49,17 +49,16 @@ class _HoverButtonState extends State<HoverButton> {
               padding: const EdgeInsets.all(paddingM),
               constraints: BoxConstraints(
                 maxWidth: isHover
-                    ? MediaQuery.of(context).size.width * .08
+                    ? SizeConfig.width * .08
                     : widget.isSelected
                         ? sizeM - 3
                         : 0,
               ),
-              height: MediaQuery.of(context).size.height * .04,
+              height: SizeConfig.height * .04,
             ),
             Text(
               widget.text,
-              style: TextStyle(
-                  fontWeight: FontWeight.w700, color: widget.textColor),
+              style: TextStyle(fontWeight: FontWeight.w700, color: widget.textColor),
             ),
           ],
         ),

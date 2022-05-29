@@ -1,12 +1,14 @@
-import 'package:artway_web/features/screens/home/home_screen.dart';
+import 'package:artway_web/app/navigation/router.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
-  runApp(const GetMaterialApp(
+  runApp(GetMaterialApp.router(
     debugShowCheckedModeBanner: false,
-    home: HomeScreen(),
+    theme: ThemeData.light(),
+    routeInformationParser: AppRouter.router.routeInformationParser,
+    routerDelegate: AppRouter.router.routerDelegate,
   ));
 }
