@@ -27,10 +27,10 @@ class IndicatorTextButton extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Text(
-            index.toString().length < 2
-                ? '0' + (index + 1).toString()
-                : index.toString(),
-            style: mySliderh3.copyWith(color: Colors.black),
+            index.toString().length < 2 ? '0' + (index + 1).toString() : index.toString(),
+            style: mySliderh3.copyWith(
+              color: !isSelected ? Colors.black.withOpacity(0.3) : Colors.black,
+            ),
           ),
           const SizedBox(
             height: paddingS,
@@ -39,7 +39,7 @@ class IndicatorTextButton extends StatelessWidget {
             child: Text(
               title,
               style: mySliderh1.copyWith(
-                color: Colors.black,
+                color: !isSelected ? Colors.black.withOpacity(0.3) : Colors.black,
                 fontWeight: !isSelected ? FontWeight.w400 : FontWeight.w700,
               ),
             ),
@@ -48,7 +48,7 @@ class IndicatorTextButton extends StatelessWidget {
             child: Text(
               subtitle,
               style: mySliderh3.copyWith(
-                color: Colors.black.withOpacity(0.5),
+                color: !isSelected ? Colors.black.withOpacity(0.3) : Colors.black.withOpacity(0.5),
                 fontWeight: !isSelected ? FontWeight.w400 : FontWeight.w700,
                 fontStyle: FontStyle.italic,
               ),

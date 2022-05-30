@@ -50,11 +50,15 @@ class _MySliderState extends State<MySlider> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox.expand(
+    return SizedBox(
+      height: SizeConfig.height * .8,
+      width: SizeConfig.width,
       child: Stack(
-        fit: StackFit.expand,
+        fit: StackFit.loose,
         children: [
-          SizedBox.expand(
+          SizedBox(
+            height: SizeConfig.height,
+            width: SizeConfig.width,
             child: ValueListenableBuilder(
                 valueListenable: SliderController.indicatorIndex,
                 builder: (BuildContext context, int index, Widget? child) {
@@ -62,7 +66,7 @@ class _MySliderState extends State<MySlider> {
                     duration: const Duration(seconds: 5),
                     child: Image.network(
                       _imageList[index].imageUrl!,
-                      fit: BoxFit.cover,
+                      fit: BoxFit.fill,
                     ),
                   );
                 }),
@@ -71,6 +75,7 @@ class _MySliderState extends State<MySlider> {
             child: PageView.builder(
                 controller: _pageController,
                 itemCount: _imageList.length,
+                scrollDirection: Axis.horizontal,
                 onPageChanged: (int i) {
                   SliderController.indicatorIndex.value = i;
                 },
