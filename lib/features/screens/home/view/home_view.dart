@@ -1,7 +1,10 @@
+import 'package:artway_web/app/constant/color_constants.dart';
 import 'package:artway_web/app/constant/padding_and_radius_size.dart';
+import 'package:artway_web/app/init/size_config.dart';
 import 'package:artway_web/app/layout/responsive_layout.dart';
 import 'package:artway_web/app/widgets/app_bar/app_bar.dart';
 import 'package:artway_web/app/widgets/slider/my_slider.dart';
+import 'package:artway_web/features/screens/footer/footer_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -9,24 +12,36 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: ResponsiveLayout(
-        desktop: Padding(
-          padding: const EdgeInsets.only(left: paddingXXXXL, right: paddingXXXXL, top: paddingXL),
-          child: Column(
-            children: const [
-              Flexible(flex: 1, child: MyAppbar()),
-              SizedBox(height: paddingXXL),
-              Flexible(flex: 8, child: MySlider()),
+    return ResponsiveLayout(
+      desktop: Scaffold(
+        body: NestedScrollView(
+          floatHeaderSlivers: true,
+          headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+            return <Widget>[
+              SliverAppBar(
+                snap: true,
+                floating: true,
+                elevation: 0,
+                backgroundColor: defaultWhiteColor,
+                forceElevated: innerBoxIsScrolled,
+                flexibleSpace: const MyAppbar(),
+              ),
+            ];
+          },
+          body: const CustomScrollView(
+            physics: NeverScrollableScrollPhysics(),
+            slivers: [
+              SliverToBoxAdapter(child: MySlider()),
+              SliverToBoxAdapter(child: FooterScreen())
             ],
           ),
         ),
-        tablet: Container(
-          color: Colors.grey,
-        ),
-        mobile: Container(
-          color: Colors.yellow,
-        ),
+      ),
+      tablet: Container(
+        color: Colors.grey,
+      ),
+      mobile: Container(
+        color: Colors.yellow,
       ),
     );
   }
