@@ -1,8 +1,8 @@
 version: "Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)"
 options: "9a1a92567da5ba281853eeb8aa848932366c22d4c906cd6a3183548b7eafb970"
-build_start_time: [1653835044, 857057094]
-build_end_time: [1653835045, 295495986]
+build_start_time: [1655056388, 924953937]
+build_end_time: [1655056389, 365373134]
 inputs:
-  "/Users/hasanalperduzgun/development/projects/artway_web/macos/Flutter/GeneratedPluginRegistrant.swift": [1653835032, 774444103]
+  "/Users/hasanalperduzgun/development/projects/artway_web/macos/Flutter/GeneratedPluginRegistrant.swift": [1655056369, 391383647]
   "/Users/hasanalperduzgun/development/projects/artway_web/macos/Runner/AppDelegate.swift": [1646278331, 0]
   "/Users/hasanalperduzgun/development/projects/artway_web/macos/Runner/MainFlutterWindow.swift": [1646278331, 0]
