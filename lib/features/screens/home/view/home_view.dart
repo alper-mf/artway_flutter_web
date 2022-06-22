@@ -1,5 +1,4 @@
 import 'package:artway_web/app/constant/color_constants.dart';
-import 'package:artway_web/app/constant/padding_and_radius_size.dart';
 import 'package:artway_web/app/init/size_config.dart';
 import 'package:artway_web/app/layout/responsive_layout.dart';
 import 'package:artway_web/app/widgets/app_bar/app_bar.dart';
@@ -28,11 +27,17 @@ class HomeView extends StatelessWidget {
               ),
             ];
           },
-          body: const CustomScrollView(
-            physics: NeverScrollableScrollPhysics(),
+          body: CustomScrollView(
+            physics: const NeverScrollableScrollPhysics(),
             slivers: [
-              SliverToBoxAdapter(child: MySlider()),
-              SliverToBoxAdapter(child: FooterScreen())
+              const SliverToBoxAdapter(child: MySlider()),
+              SliverToBoxAdapter(
+                  child: Container(
+                height: SizeConfig.height,
+                width: SizeConfig.width,
+                color: Colors.red,
+              )),
+              const SliverToBoxAdapter(child: FooterScreen())
             ],
           ),
         ),
