@@ -1,43 +1,48 @@
 import 'package:artway_web/app/constant/color_constants.dart';
+import 'package:artway_web/app/constant/padding_and_radius_size.dart';
 import 'package:artway_web/app/init/size_config.dart';
 import 'package:artway_web/app/layout/responsive_layout.dart';
 import 'package:artway_web/app/widgets/app_bar/app_bar.dart';
 import 'package:artway_web/app/widgets/slider/my_slider.dart';
 import 'package:artway_web/features/screens/footer/footer_screen.dart';
+import 'package:artway_web/features/screens/home/controller/home_controller.dart';
+import 'package:artway_web/features/screens/our_projects/our_project_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class HomeView extends StatelessWidget {
+class HomeView extends GetView<HomeController> {
   const HomeView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ResponsiveLayout(
       desktop: Scaffold(
-        body: NestedScrollView(
-          floatHeaderSlivers: true,
-          headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
-            return <Widget>[
-              SliverAppBar(
-                snap: true,
-                floating: true,
-                elevation: 0,
-                backgroundColor: defaultWhiteColor,
-                forceElevated: innerBoxIsScrolled,
-                flexibleSpace: const MyAppbar(),
+        body: Obx(
+          () => Column(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              AnimatedContainer(
+                duration: const Duration(milliseconds: 100),
+                height: controller.showAppbar.value ? SizeConfig.height * .08 : 0,
+                child: Padding(
+                  padding:
+                      EdgeInsets.fromLTRB(SizeConfig.width * .03, 0, SizeConfig.width * .03, 0),
+                  child: const MyAppbar(),
+                ),
               ),
-            ];
-          },
-          body: CustomScrollView(
-            physics: const NeverScrollableScrollPhysics(),
-            slivers: [
-              const SliverToBoxAdapter(child: MySlider()),
-              SliverToBoxAdapter(
-                  child: Container(
-                height: SizeConfig.height,
-                width: SizeConfig.width,
-                color: Colors.red,
-              )),
-              const SliverToBoxAdapter(child: FooterScreen())
+              Expanded(
+                child: SingleChildScrollView(
+                  controller: controller.scrollViewController,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: const [
+                      MySlider(),
+                      OurProjectScreen(),
+                      FooterScreen(),
+                    ],
+                  ),
+                ),
+              )
             ],
           ),
         ),

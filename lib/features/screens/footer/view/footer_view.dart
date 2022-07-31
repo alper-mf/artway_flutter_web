@@ -12,10 +12,9 @@ class FooterView extends StatelessWidget {
     return Container(
       padding: EdgeInsets.fromLTRB(SizeConfig.width * .075, SizeConfig.height * .04,
           SizeConfig.width * .075, SizeConfig.height * .04),
-      height: SizeConfig.height * 1,
-      width: SizeConfig.width,
       color: footerBackground,
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Flexible(
