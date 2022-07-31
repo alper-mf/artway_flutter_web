@@ -2,6 +2,7 @@ class OurProjectTexts {
   OurProjectTexts._();
 
   static const title = 'Projelerimiz';
+  static const ourTeam = 'Ekibimiz';
   static const contact = 'İletişim';
   static const news = 'Haberler';
   static const instagram = 'Instagram';

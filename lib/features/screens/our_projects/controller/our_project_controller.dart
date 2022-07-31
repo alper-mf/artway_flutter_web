@@ -21,4 +21,27 @@ class OurProjectController extends GetxController {
           "Lorem ipsum dolor sit amet, consectetur adipising elit, sed do usmod tempor dunt ut labore et dolorie magna aliqua. Ut enim ad minim veniam, quis rud xercitation lamco laboris nisi ut aliquip ex ea do sit amet in.",
     },
   ];
+
+  final ourTeamList = [
+    {
+      "name": "Dilan",
+      "image": "https://brok.qodeinteractive.com/wp-content/uploads/2021/10/Main-home-team-02.jpg",
+      "work_type": 'Mimar'
+    },
+    {
+      "name": "Alper",
+      "image": "https://brok.qodeinteractive.com/wp-content/uploads/2021/10/Main-home-team-01.jpg",
+      "work_type": 'Developer'
+    },
+    {
+      "name": "Mert",
+      "image": "https://brok.qodeinteractive.com/wp-content/uploads/2021/10/Main-home-team-03.jpg",
+      "work_type": 'Şirket Ortağı'
+    },
+    {
+      "name": "Dede",
+      "image": "https://brok.qodeinteractive.com/wp-content/uploads/2021/10/Main-home-team-04.jpg",
+      "work_type": 'Usta'
+    },
+  ];
 }

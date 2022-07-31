@@ -80,7 +80,6 @@ class _MySliderState extends State<MySlider> {
                   SliderController.indicatorIndex.value = i;
                 },
                 itemBuilder: ((context, index) {
-                  var item = _imageList[index];
                   return Row(
                     children: [
                       const SizedBox(width: sizeM),
